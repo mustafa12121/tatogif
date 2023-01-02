@@ -7,7 +7,7 @@ let birthdayPerson = {
   secandColor: "purple",
   imgeSrc: "./img/pro.jpg",
   yourPhone: "249962002351",
-  birthday: 2,
+  birthday: 8,
 };
 
 let button = document.getElementById("show");
