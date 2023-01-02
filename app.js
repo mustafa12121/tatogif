@@ -7,7 +7,7 @@ let birthdayPerson = {
   secandColor: "purple",
   imgeSrc: "./img/pro.jpg",
   yourPhone: "249962002351",
-  birthday: 8,
+  birthday: 2,
 };
 
 let button = document.getElementById("show");
@@ -61,15 +61,19 @@ setInterval(() => {
 }, 100000);
 
 if (time.getDate() >= birthday && time.getMonth() >= 0) {
-  console.log(time.getDate());
-  window.onload = () => {
-    button.addEventListener("click", () => {
-      fulScreen();
-      getWords(text);
-      runMousc();
-      changOpacity(document.querySelector("button"), false, 50, 0.01);
-    });
-  };
+  let pass = window.prompt("the password");
+  if (pass == "Web123@") {
+    window.onload = () => {
+      button.addEventListener("click", () => {
+        fulScreen();
+        getWords(text);
+        runMousc();
+        changOpacity(document.querySelector("button"), false, 50, 0.01);
+      });
+    };
+  } else {
+    wordsContainer.remove();
+  }
 } else {
   let main = document.querySelector("main section");
   main.innerHTML = "";
