@@ -1,0 +1,95 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    background-repeat: no-repeat;
+    background-color: #111111;
+}
+
+main {
+    height: 100vh;
+}
+
+section {
+    z-index: 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    overflow: hidden;
+}
+
+button {
+    text-transform: uppercase;
+    cursor: pointer;
+    box-shadow: 1px 5px 12px -2px darkgrey;
+    border: none;
+    color: white;
+    padding: 15px 15px;
+    border-radius: 20px;
+    font-size: 1.3rem;
+}
+
+span {
+    animation: h 2s both;
+    transition: 2s;
+    font-weight: bold;
+    font-size: 1.5rem;
+
+}
+
+
+
+@keyframes h {
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.contain {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    align-items: center;
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid green;
+    gap: 10px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    background-color: #ffffffdb;
+    border-radius: 15px;
+    padding: 10px 15px;
+    box-shadow: 1px 5px 12px -2px darkgrey;
+    position: fixed;
+    opacity: 0;
+}
+
+.contain .box {
+    border-radius: 50%;
+    overflow: hidden;
+    width: 100px;
+}
+
+.contain img {
+    max-width: 100%;
+}
+
+.contain p {
+    color: purple;
+}
+
+.contain p:last-child {
+    color: black;
+
+}
