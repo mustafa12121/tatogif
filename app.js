@@ -1,5 +1,6 @@
 let wordsContainer = document.querySelector("section");
 let i = 0;
+// fill this info abuot you and the birthday person
 let birthdayPerson = {
   personName: "Ayaat",
   birthdaySong: "./songs/song1.mp3",
@@ -46,7 +47,7 @@ let text = [
   "as long as ",
   "what you doing is right",
   `🎇happy birthday ${personName}🎇`,
-  "",
+  "Wish you a Good live",
 ];
 
 //adding the fiv colors
