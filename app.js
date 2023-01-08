@@ -33,7 +33,6 @@ let text = [
   "and we were focused on",
   "someone else 😅",
   "any way 😁",
-  "but...",
   "after some time",
   "turns out that ",
   "you're not nurmal 🙂",
@@ -46,8 +45,9 @@ let text = [
   "be who you want to be",
   "as long as ",
   "what you doing is right",
+  "Wish you a Long Good live",
   `🎇happy birthday ${personName}🎇`,
-  "Wish you a Good live",
+  "",
 ];
 
 //adding the fiv colors
