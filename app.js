@@ -27,7 +27,7 @@ let text = [
   "abut somthing to do",
   "for your birthday",
   "and i make this😌",
-  "the first time I met you",
+  "the first time I meet you",
   "i thought you were",
   "just a normal girl",
   "and we were focused on",
