@@ -9,6 +9,7 @@ let birthdayPerson = {
   imgeSrc: "./img/pro.jpg",
   yourPhone: "249962002351",
   birthday: 8,
+  open: false,
 };
 
 let button = document.getElementById("show");
@@ -20,6 +21,7 @@ let {
   imgeSrc,
   yourPhone,
   birthday,
+  open,
 } = birthdayPerson;
 let text = [
   `Hello ${personName}`,
@@ -61,7 +63,8 @@ setInterval(() => {
   time = new Date();
 }, 100000);
 
-if (time.getDate() >= birthday && time.getMonth() >= 0) {
+// if (time.getDate() >= time.getDate() && time.getMonth() >= 0) {
+if (open == true) {
   let pass = window.prompt("the password");
   if (pass == "Web123@") {
     window.onload = () => {
@@ -199,7 +202,9 @@ function putTheTime(ele) {
   ele.style.fontWeight = "bold";
   setInterval(() => {
     day = target.getDate() - time.getDate();
-    if (day == 1) ele.innerText = `the opining is tomorrow`;
+    if (open == false) {
+      ele.innerText = `Close for Development 🔧`;
+    } else if (day == 1) ele.innerText = `the opining is tomorrow`;
     else {
       ele.innerText = ` ${day} days until opening`;
     }
