@@ -196,7 +196,7 @@ function changOpacity(ele, dierction = true, timing = 100, value = 0.1) {
 
 function putTheTime(ele) {
   let target = new Date();
-  target.setFullYear(2023, 0, birthday);
+  target.setFullYear(2026, 0, birthday);
   let day = target.getDate() - time.getDate();
   ele.style.fontSize = "1.3rem";
   ele.style.fontWeight = "bold";
