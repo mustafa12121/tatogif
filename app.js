@@ -63,10 +63,14 @@ setInterval(() => {
   time = new Date();
 }, 100000);
 
-// if (time.getDate() >= time.getDate() && time.getMonth() >= 0) {
-if (open == true) {
+// Only allow the app to open on the date you set (month 0 = January)
+function isTodayBirthday() {
+  return time.getMonth() === 0 && time.getDate() === birthday;
+}
+
+if (isTodayBirthday()) {
   let pass = window.prompt("the password");
-  if (pass == "Web123@") {
+  if (pass === "Web123@") {
     window.onload = () => {
       button.addEventListener("click", () => {
         fulScreen();
@@ -79,12 +83,17 @@ if (open == true) {
     wordsContainer.remove();
   }
 } else {
+  // show countdown until the next occurrence of the chosen day
   let main = document.querySelector("main section");
   main.innerHTML = "";
   let tip = document.createElement("p");
   tip.className = "not-time";
   main.appendChild(tip);
-  putTheTime(tip);
+  let next = new Date(time.getFullYear(), 0, birthday, 0, 0, 0, 0);
+  if (time > next) {
+    next.setFullYear(next.getFullYear() + 1);
+  }
+  putTheTime(tip, next);
 }
 
 function fulScreen() {
@@ -194,19 +203,24 @@ function changOpacity(ele, dierction = true, timing = 100, value = 0.1) {
   }
 }
 
-function putTheTime(ele) {
-  let target = new Date();
-  target.setFullYear(2026, 0, birthday);
-  let day = target.getDate() - time.getDate();
+function putTheTime(ele, target) {
+  const msPerDay = 24 * 60 * 60 * 1000;
   ele.style.fontSize = "1.3rem";
   ele.style.fontWeight = "bold";
-  setInterval(() => {
-    day = target.getDate() - time.getDate();
-    if (open == false) {
-      ele.innerText = `Close for Development 🔧`;
-    } else if (day == 1) ele.innerText = `the opining is tomorrow`;
-    else {
-      ele.innerText = ` ${day} days until opening`;
+  function update() {
+    const now = new Date();
+    const diffMs = target - now;
+    if (diffMs <= 0) {
+      ele.innerText = `It's the day! 🎉`;
+      return;
     }
-  }, 1000);
+    const days = Math.ceil(diffMs / msPerDay);
+    if (days === 1) {
+      ele.innerText = `The opening is tomorrow`;
+    } else {
+      ele.innerText = `${days} days until opening`;
+    }
+  }
+  update();
+  setInterval(update, 1000);
 }
